@@ -1,6 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
+import {LinearGradient} from 'expo';
+
+import TimeComp from '../components/TimeComp';
+
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Home'
@@ -9,20 +13,30 @@ export default class HomeScreen extends React.Component {
     const { navigate } = this.props.navigation;
 
     return (
-      <View style={styles.view}>
-        <View>
-          <Text style={styles.h1}>Overview</Text>
-        </View>
-        <View style={styles.row}>
-          <View style={[styles.col, styles.card]}>
-            <Text>Trainingsplan</Text>
+      <View style={styles.container} >
+        <View style={styles.bgCard}>
+          <View style={styles.timeContainer}>
+            <TimeComp />
           </View>
-          <View style={[styles.col, styles.card]}>
-            <Text>Trainingsplan</Text>
+          
+          <View style={styles.padding}>
+            <View style={styles.bottomBorder}>
+              <Text style={styles.p}>Hello</Text>
+            </View>
+            <View style={styles.bottomBorder}>
+              <Text style={styles.p}>Hello</Text>
+            </View>
+            <View style={styles.bottomBorder}>
+              <Text style={styles.p}>Hello</Text>
+            </View>
+            <View style={styles.bottomBorder}>
+              <Text style={styles.p}>Hello</Text>
+            </View>
+            <View style={styles.bottomBorder}>
+              <Text style={styles.p}>Hello</Text>
+            </View>
+
           </View>
-        </View>
-        <View>
-          <Button title="back" onPress={() => navigate('Start')} />
         </View>
       </View>
     );
@@ -30,44 +44,41 @@ export default class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#2b2b2b',
+  },
   h1: {
-    fontSize: 20,
-    padding: 10,
-    backgroundColor: '#fff',
+    fontSize: 60,
+    textAlign: 'center',
+    color: 'white',
+  },
+  bgCard: {
+    height: 400,
+    flex: 0,
+  },
+  timeContainer: {
+    flex: 1,
+    alignItems: 'center',
+    paddingTop: 40,
+  },
+  timer: {
+    flex: 0,
+    width: 270,
+    height: 270,
+    backgroundColor: 'white',
+    borderRadius: 145,
+  },
+  padding: {
+    paddingHorizontal: 40,
   },
   p: {
-    fontSize: 12,
+    fontSize: 16,
+    color: 'white',
   },
-
-  view: {
-    flex: 1,
-    flexDirection: 'column',
-    padding: 10,
-    backgroundColor: '#fff'
-  },
-  row: {
-    flex: 1,
-    flexDirection: 'row',
-  },
-  col: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: '#fff',
-    minWidth: 100,
-    minHeight: 100,
-    maxHeight: 150,
-    margin: 10,
-  },
-  card: {
-    padding: 10,
-    shadowColor: "#000",
-    shadowOffset: {
-	    width: 0,
-	    height: 3,
-    },
-    shadowOpacity: 0.22,
-    shadowRadius: 10.22,
-    elevation: 2,
-    backgroundColor: '#fff',
+  bottomBorder: {
+    borderBottomColor: 'white',
+    borderBottomWidth: 1,
   }
+
 });

@@ -7,11 +7,15 @@ export default class StartScreen extends React.Component {
     title: 'Welcome',
   };
 
+  _animateGradient = () => {
+    return;
+  }
+
   render() {
     const { navigate } = this.props.navigation;
 
     return(
-      <LinearGradient colors={['#992af9', '#d10869']} style={styles.container} >
+      <LinearGradient colors={['#bf0046', '#bf00a5']} style={styles.container} >
         <View>
           <Text style={styles.h1}>YET</Text>
           <Text style={styles.h1}>ANOTHER</Text>

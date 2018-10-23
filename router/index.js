@@ -37,11 +37,14 @@ export const StartNavigation = createStackNavigator(
     Start: {
       screen: StartScreen,
       navigationOptions: {
-        header: null,
+        header: 'null',
       }
     },
     Home: {
       screen: TabNavigation,
     }
+  },
+  {
+    headerMode: 'none',
   }
 )
