@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import {LinearGradient} from 'expo';
 
 export default class StartScreen extends React.Component {
   static navigationOptions = {
@@ -11,18 +11,22 @@ export default class StartScreen extends React.Component {
     const { navigate } = this.props.navigation;
 
     return(
-      <View>
-        <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.container} >
-          <View>
-            <Text style={styles.h1}>YET</Text>
-            <Text style={styles.h1}>ANOTHER</Text>
-            <Text style={styles.h1}>APP</Text>
-          </View>
-          <View>
-            <Button title="start" onPress={() => navigate('Home')}/>
-          </View>
-        </LinearGradient>
-      </View>
+      <LinearGradient colors={['#992af9', '#d10869']} style={styles.container} >
+        <View>
+          <Text style={styles.h1}>YET</Text>
+          <Text style={styles.h1}>ANOTHER</Text>
+          <Text style={styles.h1}>APP</Text>
+        </View>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity onPress={() => navigate('Home')} underlayColor="transparent" >
+            <View style={styles.button} >
+              <Text style={styles.buttonText}>
+                START
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+      </LinearGradient>
     );
   }
 }
@@ -36,5 +40,24 @@ const styles = StyleSheet.create({
   h1: {
     fontSize: 60,
     textAlign: 'center',
+    color: 'white',
+  },
+  button: {
+    flex: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 240,
+    height: 80,
+    borderRadius: 50,
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    borderColor: 'white',
+  },
+  buttonContainer: {
+    marginTop: 100,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 18,
   }
 });
